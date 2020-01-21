@@ -57,11 +57,24 @@
 //    DB:insert('insert into posts (title, content) values(?, ?)', ['PHP with laravel', 'Laravel is the best thing that has happened to PHP']);
 //
 //});
+//
+//Route::get('/insert', function (){
+//
+//    DB::insert('insert into posts(title, content) values(?, ?)',['PHP with laravel', 'Laravel is the best thing that has happened to PHP']);
+//
+//});
 
-Route::get('/insert', function (){
+Route::get('/read', function (){
 
-    DB::insert('insert into posts(title, content) values(?, ?)',['PHP with laravel', 'Laravel is the best thing that has happened to PHP']);
+    $results = DB::select('select * from posts where id = ?', [1]);
     
+    return $results;
+//    foreach ($results as $post) {
+//
+//        return $post->title;
+//
+//    }
+
 });
 
 
