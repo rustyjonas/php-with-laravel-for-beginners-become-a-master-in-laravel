@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+//Route::get('/', function () {
+//
+//    return "Hi you";
+//});
 
-    return "Hi you";
-});
 //
 //Route::get('/about', function () {
 //
@@ -46,9 +47,22 @@ Route::get('/', function () {
 
 //Route::resource('posts', 'PostsController');
 
-Route::get('/contact', 'PostsController@contact');
+//Route::get('/contact', 'PostsController@contact');
+//
+//Route::get('post/{id}/{name}/{password}', 'PostsController@show_post');
 
-Route::get('post/{id}/{name}/{password}', 'PostsController@show_post');
+//
+//Route::get('/insert', function (){
+//
+//    DB:insert('insert into posts (title, content) values(?, ?)', ['PHP with laravel', 'Laravel is the best thing that has happened to PHP']);
+//
+//});
+
+Route::get('/insert', function (){
+
+    DB::insert('insert into posts(title, content) values(?, ?)',['PHP with laravel', 'Laravel is the best thing that has happened to PHP']);
+    
+});
 
 
 /*
