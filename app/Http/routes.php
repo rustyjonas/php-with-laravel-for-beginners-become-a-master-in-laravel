@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -64,18 +66,18 @@
 //
 //});
 
-Route::get('/read', function (){
-
-    $results = DB::select('select * from posts where id = ?', [1]);
-    
-    return $results;
+//Route::get('/read', function (){
+//
+//    $results = DB::select('select * from posts where id = ?', [1]);
+//
+//    return $results;
 //    foreach ($results as $post) {
 //
 //        return $post->title;
 //
 //    }
 
-});
+//});
 
 
 /*
@@ -91,5 +93,33 @@ Route::get('/read', function (){
 
 Route::group(['middleware' => ['web']], function () {
 
+
+});
+
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT
+|--------------------------------------------------------------------------
+|
+|
+*/
+
+//Route::get('/read', function (){
+//
+//    $posts = Post::all();
+//
+//    foreach ($posts as $post) {
+//        return $post->title;
+//    }
+//
+//});
+
+
+Route::get('/find', function (){
+
+    $post = Post::find(1);
+
+    return $post->title;
+    
 
 });
