@@ -54,11 +54,11 @@ use App\Post;
 //Route::get('post/{id}/{name}/{password}', 'PostsController@show_post');
 
 //
-//Route::get('/insert', function (){
-//
-//    DB:insert('insert into posts (title, content) values(?, ?)', ['PHP with laravel', 'Laravel is the best thing that has happened to PHP']);
-//
-//});
+Route::get('/insert', function (){
+
+   DB::insert('insert into posts (title, content) values(?, ?)', ['Laravel is awesome', 'Laravel is the best thing that has happened to PHP test']);
+
+});
 //
 //Route::get('/insert', function (){
 //
@@ -114,12 +114,19 @@ Route::group(['middleware' => ['web']], function () {
 //
 //});
 
+//
+//Route::get('/find', function (){
+//
+//    $post = Post::find(1);
+//
+//    return $post->title;
+//
+//
+//});
 
-Route::get('/find', function (){
+Route::get('/findwhere', function () {
 
-    $post = Post::find(1);
+    $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
 
-    return $post->title;
-    
-
+    return $posts;
 });
