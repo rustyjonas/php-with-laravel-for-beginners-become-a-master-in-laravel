@@ -124,9 +124,44 @@ Route::group(['middleware' => ['web']], function () {
 //
 //});
 
-Route::get('/findwhere', function () {
+// Route::get('/findwhere', function () {
 
-    $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
+//     $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
 
-    return $posts;
+//     return $posts;
+// });
+
+
+// Route::get('/findmore', function () {
+
+//     // $posts = Post::findOrFail(1);
+
+//     // return $posts;
+
+//     $posts = Post::where('users_count', '<', 50)->firstOrFail();
+
+//     return $posts
+
+// });
+
+// Route::get('/basicinsert', function(){
+
+//     $post = new Post;
+
+//     $post->title = 'new Eloquent title insert';
+//     $post->content = 'Wow eloquent is really cool, look at this content';
+
+//     $post->save();
+
+// });
+
+Route::get('/basicinsert2', function(){
+
+    $post = Post::find(2);
+
+    $post->title = 'new Eloquent title insert 2';
+    $post->content = 'Wow eloquent is really cool, look at this content 2';
+
+    $post->update();
+
 });
