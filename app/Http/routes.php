@@ -166,7 +166,29 @@ Route::group(['middleware' => ['web']], function () {
 
 // });
 
-Route::get('/create', function() {
-    Post::create(['title'=> 'PHP create method', 'content' => 'WOW I am learning a lot PHP']);
+// Route::get('/create', function() {
+//     Post::create(['title'=> 'PHP create method', 'content' => 'WOW I am learning a lot PHP']);
     
+// });
+
+// Route::get('/update', function() {
+
+//     Post::where('id', 2)->where('is_admin', 0)->update(['title'=> 'New PHP TITLE', 'content'=> 'I love PHP']);
+// });
+
+// Route::get('/delete', function () {
+
+//     $post = Post::find(2);
+
+//     $post->delete();
+
+// });
+
+Route::get('/delete2', function () {
+
+    Post::destroy([1,4]);
+
+    // Post::where('is_admin', 0)->delete();
+
+
 });
