@@ -155,13 +155,18 @@ Route::group(['middleware' => ['web']], function () {
 
 // });
 
-Route::get('/basicinsert2', function(){
+// Route::get('/basicinsert2', function(){
 
-    $post = Post::find(2);
+//     $post = Post::find(2);
 
-    $post->title = 'new Eloquent title insert 2';
-    $post->content = 'Wow eloquent is really cool, look at this content 2';
+//     $post->title = 'new Eloquent title insert 2';
+//     $post->content = 'Wow eloquent is really cool, look at this content 2';
 
-    $post->update();
+//     $post->save();
 
+// });
+
+Route::get('/create', function() {
+    Post::create(['title'=> 'PHP create method', 'content' => 'WOW I am learning a lot PHP']);
+    
 });
