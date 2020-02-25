@@ -196,6 +196,21 @@ Route::get('/create', function() {
 
 Route::get('/softdelete', function () {
    
-    Post::find(1)->delete();
+    Post::find(2)->delete();
     
+});
+
+Route::get('/readsoftdelete', function () {
+   
+//    $post = Post::find(1);
+
+//    return $post;
+
+    // $post = Post::withTrashed()->where('id', 1)->get();
+    
+    // return $post;
+
+    $post = Post::onlyTrashed()->where('is_admin', 0)->get();
+    
+    return $post;
 });
