@@ -196,7 +196,7 @@ Route::get('/create', function() {
 
 Route::get('/softdelete', function () {
    
-    Post::find(2)->delete();
+    Post::find(5)->delete();
     
 });
 
@@ -223,3 +223,13 @@ Route::get('/restore', function() {
     
 
 });
+
+
+
+Route::get('/forcedelete', function () {
+
+    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+
+
+});
+
