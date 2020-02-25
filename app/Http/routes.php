@@ -13,10 +13,11 @@ use App\Post;
 |
 */
 
-//Route::get('/', function () {
-//
-//    return "Hi you";
-//});
+Route::get('/', function () {
+
+
+   return "Hi you";
+});
 
 //
 //Route::get('/about', function () {
@@ -166,10 +167,10 @@ Route::group(['middleware' => ['web']], function () {
 
 // });
 
-// Route::get('/create', function() {
-//     Post::create(['title'=> 'PHP create method', 'content' => 'WOW I am learning a lot PHP']);
+Route::get('/create', function() {
+    Post::create(['title'=> 'PHP create method', 'content' => 'WOW I am learning a lot PHP']);
     
-// });
+});
 
 // Route::get('/update', function() {
 
@@ -184,11 +185,17 @@ Route::group(['middleware' => ['web']], function () {
 
 // });
 
-Route::get('/delete2', function () {
+// Route::get('/delete2', function () {
 
-    Post::destroy([1,4]);
+//     Post::destroy([1,4]);
 
-    // Post::where('is_admin', 0)->delete();
+//     // Post::where('is_admin', 0)->delete();
 
 
+// });
+
+Route::get('/softdelete', function () {
+   
+    Post::find(1)->delete();
+    
 });
