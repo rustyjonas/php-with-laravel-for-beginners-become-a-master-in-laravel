@@ -1,6 +1,7 @@
 <?php
 
 use App\Post;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -230,6 +231,21 @@ Route::get('/forcedelete', function () {
 
     Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
 
+
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT Relationships
+|--------------------------------------------------------------------------
+|
+|
+*/
+
+Route::get('/user/{id}/post', function($id) {
+
+    return User::find($id)->post->content;
 
 });
 
